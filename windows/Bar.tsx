@@ -19,9 +19,8 @@ const WindowTitle = () => {
 }
 
 const Time = () => {
-    // TODO: Change so that it does not use createPoll.
-    const datetime = createPoll(GLib.DateTime.new_now_local(), 1000, () => GLib.DateTime.new_now_local())
-    return <label label={datetime((c) => c.format("%H:%M:%S"))}/>
+    const datetime = createPoll("", 1000, () => Temporal.Now.plainTimeISO())
+    return <label label={datetime((c) => c.toString({smallestUnit:"second"}))}/>
 }
 
 const StartWidgets = () => {
