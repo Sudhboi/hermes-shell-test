@@ -10,6 +10,7 @@ const WindowTitle = () => {
     const hyprland = AstalHyprland.get_default()
     return (
         <label
+            name="Title"
             label= {hyprland ? (createBinding(hyprland, "focusedClient").as((v) =>
                 v.title.length > 50 ? v.title.slice(0, 47) + "..." : v.title,
             )) : "Placeholder"} // Bar doesn't start otherwise.
@@ -38,6 +39,7 @@ export default (monitor: Gdk.Monitor) => {
             visible
             gdkmonitor={monitor}
             title={"Bar"}
+            name="Bar"
             anchor={
                 Astal.WindowAnchor.TOP |
                 Astal.WindowAnchor.LEFT |
